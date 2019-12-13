@@ -48,6 +48,16 @@ public class Calculator extends Application {
         style(bpercent);
         Button bsqrt=new Button("SQRT");
         style(bsqrt);
+         Button bsin=new Button("SIN");
+        style(bsin);
+        
+        Button bcos=new Button("COS");
+        style(bcos);
+         Button btan=new Button("TAN");
+        style(btan);
+         Button blog=new Button("Log");
+        style(blog);
+        
         Button bcube=new Button("CRT");
         style(bcube);
                 
@@ -90,7 +100,8 @@ public class Calculator extends Application {
         Button point=new Button(".");
         style(point);
         Button equals=new Button("=");
-        style(equals);  
+        style(equals);
+        
         one.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -188,6 +199,45 @@ public class Calculator extends Application {
            //  String m="\b";
            int f=h.length();
            tf.setText(h.substring(0, f-1));
+            }
+        });
+bsin.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+           String text=tf.getText();
+             double r=Double.parseDouble(text);
+           r=Math.sin(r);
+           tf.setText(r+"");
+            }
+        });
+
+blog.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+           String text=tf.getText();
+             double r=Double.parseDouble(text);
+           r=Math.log(r);
+           tf.setText(r+"");
+            }
+        });
+
+bcos.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+           String text=tf.getText();
+             double r=Double.parseDouble(text);
+           r=Math.cos(r);
+           tf.setText(r+"");
+            }
+        });
+
+btan.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+           String text=tf.getText();
+             double r=Double.parseDouble(text);
+           r=Math.tan(r);
+           tf.setText(r+"");
             }
         });
         bsqrt.setOnAction(new EventHandler<ActionEvent>() {
@@ -416,9 +466,9 @@ public class Calculator extends Application {
         
         FlowPane p = new FlowPane();        
         
-        p.getChildren().addAll(tf,bpercent,bsqrt,bcube,bsquare,buponsquare,bclear,bbackspace,bdivide,seven,eight,nine,multiply,four,five,six,subtract,one,two,three,add,zero,point,equals);
+        p.getChildren().addAll(tf,bpercent,bsqrt,bcube,bsquare,buponsquare,bsin,bcos,btan,blog,bclear,bbackspace,bdivide,seven,eight,nine,multiply,four,five,six,subtract,one,two,three,add,zero,point,equals);
         
-        Scene sc = new Scene(p, 200, 210);
+        Scene sc = new Scene(p, 200, 260);
         primaryStage.setResizable(false);
         primaryStage.setTitle("Calculator");
         primaryStage.setScene(sc);
